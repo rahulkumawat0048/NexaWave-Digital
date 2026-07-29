@@ -99,6 +99,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="font-inter">
       <head>
+        <meta name="google-site-verification" content="AwPbhNHQ_onD33QjJbcurh30u_hfjiHsqOjvHZHF8E4" />
         <link rel="preconnect" href={FONT_PRECONNECT} />
         <link rel="preconnect" href={FONT_PRECONNECT_CROSS} crossOrigin="anonymous" />
         <link rel="stylesheet" href={FONT_HREF} />
