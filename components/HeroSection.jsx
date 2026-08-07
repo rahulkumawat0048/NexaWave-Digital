@@ -97,7 +97,7 @@ export default function HeroSection() {
             <p className="text-white/70 text-sm font-medium tracking-wide mb-3 animate-fade-in-up">
               #1 Digital Growth Agency in India
             </p>
-            <h1 className="text-[38px] lg:text-[52px] font-bold text-white leading-[1.1] max-w-2xl mb-7 animate-fade-in-up delay-100">
+            <h1 className="text-[38px] lg:text-[50px] font-bold text-white leading-[1.1] max-w-2xl mb-7 animate-fade-in-up delay-100">
               Scale Your Business with{' '}
               <span className="text-red-400">Premium Websites</span>
               {' '}& Smart SEO Systems
