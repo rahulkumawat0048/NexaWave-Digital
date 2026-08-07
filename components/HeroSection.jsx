@@ -40,7 +40,7 @@ export default function HeroSection() {
             </p>
             <h1 className="text-[26px] font-bold text-white leading-[1.2] mb-5">
               Scale Your Business with{' '}
-              <span className="text-green-400">Premium Websites</span>
+              <span className="text-red-400">Premium Websites</span>
               {' '}& Smart SEO Systems
             </h1>
             <div className="flex items-center gap-3">
@@ -99,19 +99,19 @@ export default function HeroSection() {
             </p>
             <h1 className="text-[38px] lg:text-[52px] font-bold text-white leading-[1.1] max-w-2xl mb-7 animate-fade-in-up delay-100">
               Scale Your Business with{' '}
-              <span className="text-green-400">Premium Websites</span>
+              <span className="text-red-400">Premium Websites</span>
               {' '}& Smart SEO Systems
             </h1>
-            <div className="flex flex-wrap gap-3 animate-fade-in-up delay-200">
+            <div className="flex flex-wrap gap-5 animate-fade-in-up delay-200">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-600/30 text-sm"
+                className="flex items-center justify-center px-5 py-3.5 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white text-sm font-semibold rounded-xl text-center hover:scale-105 transition-all duration-200 "
               >
                 Get in touch <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-full transition-all duration-200 border border-white/20 text-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-xl transition-all duration-200 border border-white/20 text-sm hover:scale-105 "
               >
                 Our services <ArrowUpRight className="w-4 h-4" />
               </a>
