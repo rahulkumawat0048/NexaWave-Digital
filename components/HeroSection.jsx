@@ -13,14 +13,10 @@ export default function HeroSection() {
   return (
     <section id="home" aria-label="NexaWave Digital hero" className="relative" style={{ marginTop: 74 }}>
 
-      {/* ─── MOBILE layout (hidden on sm+) ──────────────────────────────────
-          Uses hero-mobile-container (100svh - 72px) to fit in exactly one screen.
-          Structure: hero image card (~67%) + stats card overlapping from below.
-      ──────────────────────────────────────────────────────────────────────── */}
-      <div className="flex flex-col sm:hidden hero-mobile-container mx-3">
+      {/* MOBILE layout */}
 
-        {/* Hero image card — takes 67% of the total container height */}
-        <div className="relative rounded-2xl overflow-hidden basis-[67%] shrink-0">
+      <div className="flex flex-col sm:hidden hero-mobile-container mx-3 pb-2 pt-1">
+        <div className="relative rounded-2xl overflow-hidden basis-[80%] shrink-0">
           <Image
             src={heroMain}
             alt="NexaWave Digital — website development and SEO agency in Rajsamand, Rajasthan"
@@ -30,10 +26,7 @@ export default function HeroSection() {
             className="object-cover object-center"
             sizes="100vw"
           />
-          {/* Dark overlay matching the reference */}
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/30 via-gray-900/60 to-gray-900/90" />
-
-          {/* Content — lower-left, pushed to bottom with padding for the stats card overlap */}
           <div className="relative h-full flex flex-col justify-end px-5 pb-16 pt-8">
             <p className="text-white text-[13px] font-medium tracking-wide mb-3">
               #1 Digital Growth Agency in India
@@ -46,13 +39,13 @@ export default function HeroSection() {
             <div className="flex items-center gap-3">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-green-600 text-white font-semibold rounded-full text-[14px] hover:bg-green-700 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white font-semibold rounded-full md:text-[14px] text-[12px] hover:scale-105 transition-transform duration-200"
               >
                 Get in touch <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 px-5 py-3 text-white font-semibold rounded-full border border-white/50 text-[14px] hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 text-white font-semibold rounded-full border border-white/50 text-[14px] hover:bg-white/10 transition-colors duration-200"
               >
                 Our services <ArrowUpRight className="w-4 h-4" />
               </a>
@@ -60,7 +53,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Stats card — fills remaining space, overlaps hero bottom by 24px */}
         <div className="flex-1 bg-white rounded-2xl shadow-xl border border-gray-100 -mt-6 relative z-10 flex items-center px-3">
           <div className="grid grid-cols-3 divide-x divide-gray-200 w-full">
             {stats.map((stat) => (
@@ -74,12 +66,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ─── DESKTOP layout (sm and above) ──────────────────────────────────
-          Hero fills full viewport; stats overlap from below. Unchanged.
-      ──────────────────────────────────────────────────────────────────────── */}
+      {/* DESKTOP layout */}
       <div className="hidden sm:block">
-
-        {/* Hero image block */}
         <div className="relative mx-6 lg:mx-8 rounded-2xl overflow-hidden hero-height">
           <Image
             src={heroMain}
@@ -91,35 +79,32 @@ export default function HeroSection() {
             sizes="calc(100vw - 48px)"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/55 to-gray-800/40" />
-
-          {/* Content */}
           <div className="relative h-full flex flex-col justify-end px-10 lg:px-16 pb-14 lg:pb-16">
-            <p className="text-white/70 text-sm font-medium tracking-wide mb-3 animate-fade-in-up">
+            <p className="text-white/70 text-sm font-medium tracking-wide mb-3">
               #1 Digital Growth Agency in India
             </p>
-            <h1 className="text-[38px] lg:text-[50px] font-bold text-white leading-[1.1] max-w-2xl mb-7 animate-fade-in-up delay-100">
+            <h1 className="text-[38px] lg:text-[50px] font-bold text-white leading-[1.1] max-w-2xl mb-7">
               Scale Your Business with{' '}
               <span className="text-red-400">Premium Websites</span>
               {' '}& Smart SEO Systems
             </h1>
-            <div className="flex flex-wrap gap-5 animate-fade-in-up delay-200">
+            <div className="flex flex-wrap gap-5">
               <a
                 href="#contact"
-                className="flex items-center justify-center px-5 py-3.5 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white text-sm font-semibold rounded-xl text-center hover:scale-105 transition-all duration-200 "
+                className="flex items-center justify-center px-5 py-3.5 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white text-sm font-semibold rounded-xl text-center hover:scale-105 transition-transform duration-200"
               >
                 Get in touch <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-xl transition-all duration-200 border border-white/20 text-sm hover:scale-105 "
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold rounded-xl transition-colors duration-200 border border-white/20 text-sm hover:scale-105"
               >
                 Our services <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Floating Card — large desktop only */}
-          <div className="absolute top-10 right-8 hidden lg:block animate-slide-right">
+          <div className="absolute top-10 right-8 hidden lg:block">
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 w-52">
               <div className="relative rounded-xl overflow-hidden mb-3 h-28">
                 <Image
@@ -136,12 +121,11 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Stats bar — overlaps hero bottom */}
         <div className="relative z-10 mx-6 lg:mx-8 -mt-12">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 px-16 py-8">
             <div className="grid grid-cols-3 divide-x divide-gray-100">
-              {stats.map((stat,index) => (
-                <div key={stat.value} className={`${index==1 ? "text-center" : index==2 ?"text-right" : "text-left"} px-8 lg:px-10 first:pl-0 last:pr-0 `}>
+              {stats.map((stat, index) => (
+                <div key={stat.value} className={`${index === 1 ? "text-center" : index === 2 ? "text-right" : "text-left"} px-8 lg:px-10 first:pl-0 last:pr-0`}>
                   <div className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">{stat.value}</div>
                   <div className="text-base font-semibold text-gray-800 mt-1">{stat.label}</div>
                   <div className="text-sm text-gray-400 mt-0.5">{stat.sub}</div>
@@ -151,7 +135,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

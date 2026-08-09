@@ -1,7 +1,6 @@
 'use client';
 
-import { Globe2, Users2, Award, Clock, Shield, Sparkles, Star, CheckCircle, Zap, TrendingUp, Heart, ThumbsUp } from "lucide-react";
-import { motion } from 'framer-motion';
+import { Globe2, Users2, Award, Clock, Shield, Sparkles, Star, Zap, TrendingUp, ThumbsUp } from "lucide-react";
 
 const trustIndicators = [
   {
@@ -38,110 +37,60 @@ const trustIndicators = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring', stiffness: 100 } }
-};
-
 export default function TrustSection() {
   return (
     <section id="trust" aria-label="Trust and quality assurance" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div 
-          className="text-center max-w-3xl mx-auto mb-10 sm:mb-14"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div 
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50/80 via-red-50/80 to-pink-50/80 border border-orange-200/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-          >
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50/80 via-red-50/80 to-pink-50/80 border border-orange-200/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm">
             <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-400" />
             <span className="text-orange-700 text-xs font-semibold uppercase tracking-wider">Why Choose Us</span>
-          </motion.div>
+          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 text-gray-900">
             We Believe in{" "}
-            <span className="relative inline-block group">
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 font-extrabold">
-                Quality & Trust
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="absolute -top-2 -right-2 w-1.5 h-1.5 rounded-full bg-orange-500/30 animate-pulse" />
-              <span className="absolute -bottom-2 -left-2 w-1.5 h-1.5 rounded-full bg-pink-500/30 animate-pulse delay-75" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 font-extrabold">
+              Quality & Trust
             </span>
           </h2>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Every project we deliver goes through rigorous quality checks. We're committed to building scalable, high-performance solutions that help your business grow.
           </p>
-        </motion.div>
+        </div>
 
         {/* Trust Indicators Grid */}
-        <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 mb-12 sm:mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 mb-12 sm:mb-16">
           {trustIndicators.map((item) => {
             const Icon = item.icon;
             return (
-              <motion.div
+              <div
                 key={item.label}
-                variants={itemVariants}
-                whileHover={{ y: -8, scale: 1.03 }}
-                className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-2xl border border-gray-100/50 hover:border-transparent p-4 sm:p-5 text-center transition-all duration-500 overflow-hidden`}
+                className={`group relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-2xl border border-gray-100/50 hover:border-transparent p-4 sm:p-5 text-center transition-all duration-300 overflow-hidden hover:-translate-y-2`}
               >
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                <div className={`absolute -inset-1 rounded-2xl bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300`} />
                 
                 <div className="relative z-10">
-                  <motion.div 
-                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mx-auto mb-2.5 shadow-lg shadow-${item.gradient.split(' ')[0].replace('from-', '')}/30`}
-                    whileHover={{ scale: 1.15, rotate: 8 }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mx-auto mb-2.5 shadow-lg`}>
                     <Icon className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white" />
-                  </motion.div>
+                  </div>
                   
-                  <motion.div 
-                    className={`text-xl sm:text-2xl font-extrabold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent mb-0.5`}
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  <div className={`text-xl sm:text-2xl font-extrabold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent mb-0.5`}>
                     {item.value}
-                  </motion.div>
+                  </div>
                   
                   <div className="text-[10px] sm:text-xs font-semibold text-gray-700 mb-0.5">{item.label}</div>
                   <div className="text-[9px] sm:text-[10px] text-gray-400">{item.description}</div>
                   
-                  <motion.div 
-                    className={`w-6 h-0.5 bg-gradient-to-r ${item.gradient} rounded-full mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                    initial={{ width: 0 }}
-                    whileHover={{ width: 24 }}
-                    transition={{ duration: 0.3 }}
-                  />
+                  <div className={`w-6 h-0.5 bg-gradient-to-r ${item.gradient} rounded-full mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 </div>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Why Choose Us */}
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-14"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ staggerChildren: 0.1, delayChildren: 0.2 }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-14">
           {[
             { 
               icon: Sparkles, 
@@ -165,28 +114,19 @@ export default function TrustSection() {
               bgGradient: 'from-green-50/50 via-emerald-50/50 to-teal-50/50'
             },
           ].map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              className={`group bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-2xl border border-gray-100/50 hover:border-transparent p-5 transition-all duration-500 overflow-hidden`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 + i * 0.1, duration: 0.4 }}
-              whileHover={{ y: -4, scale: 1.01 }}
+              className={`group bg-white/80 backdrop-blur-sm rounded-xl shadow-sm hover:shadow-2xl border border-gray-100/50 hover:border-transparent p-5 transition-all duration-300 overflow-hidden hover:-translate-y-1`}
             >
-              <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
+              <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${item.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300`} />
               
               <div className="relative flex items-start gap-3">
-                <motion.div 
-                  className={`w-9 h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shrink-0 shadow-lg shadow-${item.gradient.split(' ')[0].replace('from-', '')}/30`}
-                  whileHover={{ scale: 1.15, rotate: 8 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shrink-0 shadow-lg`}>
                   <item.icon className="w-4.5 h-4.5 text-white" />
-                </motion.div>
+                </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 text-sm mb-0.5 group-hover:text-orange-500 transition-all duration-300">
+                  <h3 className="font-semibold text-gray-900 text-sm mb-0.5 group-hover:text-orange-500 transition-colors duration-300">
                     {item.title}
                   </h3>
                   <p className="text-xs text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
@@ -194,18 +134,12 @@ export default function TrustSection() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Trust Bar */}
-        <motion.div 
-          className="relative bg-gradient-to-r from-orange-600/5 via-red-600/5 to-pink-600/5 rounded-2xl border border-orange-200/30 px-4 sm:px-6 py-3 sm:py-4 backdrop-blur-sm overflow-hidden"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div className="relative bg-gradient-to-r from-orange-600/5 via-red-600/5 to-pink-600/5 rounded-2xl border border-orange-200/30 px-4 sm:px-6 py-3 sm:py-4 backdrop-blur-sm overflow-hidden">
           <div className="relative flex flex-wrap justify-center items-center gap-3 sm:gap-6">
             {[
               { icon: ThumbsUp, label: '100% Client Satisfaction', color: 'text-green-500', bg: 'from-green-500 to-emerald-500' },
@@ -213,27 +147,15 @@ export default function TrustSection() {
               { icon: Star, label: '4.9/5 Rating', color: 'text-yellow-500', bg: 'from-yellow-500 to-orange-500' },
               { icon: Zap, label: 'Fast Turnaround', color: 'text-orange-500', bg: 'from-orange-500 to-red-500' },
             ].map((item, i) => (
-              <motion.div 
-                key={i}
-                className="flex items-center gap-1.5"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.1, duration: 0.3 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div 
-                  className={`w-6 h-6 rounded-full bg-gradient-to-br ${item.bg} flex items-center justify-center shadow-md shadow-${item.bg.split(' ')[1]?.replace('to-', '') || 'purple'}/30`}
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  transition={{ duration: 0.3 }}
-                >
+              <div key={i} className="flex items-center gap-1.5">
+                <div className={`w-6 h-6 rounded-full bg-gradient-to-br ${item.bg} flex items-center justify-center shadow-md`}>
                   <item.icon className={`w-3 h-3 text-white ${item.label === '4.9/5 Rating' ? 'fill-white' : ''}`} />
-                </motion.div>
+                </div>
                 <span className="text-[10px] sm:text-xs text-gray-700 font-medium">{item.label}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

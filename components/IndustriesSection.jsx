@@ -1,190 +1,131 @@
 'use client';
 
-import Image from 'next/image';
-import { ArrowUpRight, Sparkles, ChevronRight, CheckCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Building2, Plane, Briefcase, ShoppingBag, Heart, GraduationCap, Landmark, Rocket, Newspaper, UtensilsCrossed, Train, Car, Sparkles, TrendingUp, ArrowUpRight } from 'lucide-react';
 
-const processTeam = '/process/process-team.jpeg';
-
-const steps = [
-  {
-    num: '01',
-    title: 'Business Meeting',
-    desc: 'We connect over a call or WhatsApp to understand your business requirements, products, and target audience.',
-    icon: '🤝',
-  },
-  {
-    num: '02',
-    title: 'Custom Strategy',
-    desc: 'We create a simple, tailored digital blueprint, website design mockup, and fixed transparent budget for your project.',
-    icon: '📋',
-  },
-  {
-    num: '03',
-    title: 'Fast Development',
-    desc: 'Our technical team builds your lightning-fast website and sets up your entire Google Maps SEO and business profile.',
-    icon: '⚡',
-  },
-  {
-    num: '04',
-    title: 'Launch & Support',
-    desc: 'We launch your brand live on Google and provide you with seamless lifetime technical support.',
-    icon: '🚀',
-  },
+const industries = [
+  { icon: Building2, label: 'Real Estate', gradient: 'from-orange-500 via-red-500 to-orange-600', bgGradient: 'from-orange-50/50 via-red-50/50 to-orange-50/50' },
+  { icon: Plane, label: 'Travel & Hospitality', gradient: 'from-amber-500 via-orange-500 to-red-500', bgGradient: 'from-amber-50/50 via-orange-50/50 to-red-50/50' },
+  { icon: Briefcase, label: 'B2B Solutions', gradient: 'from-red-500 via-rose-500 to-orange-500', bgGradient: 'from-red-50/50 via-rose-50/50 to-orange-50/50' },
+  { icon: ShoppingBag, label: 'B2C Solutions', gradient: 'from-orange-500 via-rose-500 to-red-500', bgGradient: 'from-orange-50/50 via-rose-50/50 to-red-50/50' },
+  { icon: Heart, label: 'Healthcare', gradient: 'from-red-500 via-rose-500 to-pink-500', bgGradient: 'from-red-50/50 via-rose-50/50 to-pink-50/50' },
+  { icon: GraduationCap, label: 'Education', gradient: 'from-yellow-500 via-orange-500 to-amber-500', bgGradient: 'from-yellow-50/50 via-orange-50/50 to-amber-50/50' },
+  { icon: Landmark, label: 'Banking', gradient: 'from-emerald-500 via-teal-500 to-cyan-500', bgGradient: 'from-emerald-50/50 via-teal-50/50 to-cyan-50/50' },
+  { icon: Rocket, label: 'Startups', gradient: 'from-orange-500 via-red-500 to-rose-500', bgGradient: 'from-orange-50/50 via-red-50/50 to-rose-50/50' },
+  { icon: Newspaper, label: 'Media & Publishing', gradient: 'from-orange-500 via-amber-500 to-yellow-500', bgGradient: 'from-orange-50/50 via-amber-50/50 to-yellow-50/50' },
+  { icon: UtensilsCrossed, label: 'Food Ordering', gradient: 'from-amber-500 via-yellow-500 to-orange-500', bgGradient: 'from-amber-50/50 via-yellow-50/50 to-orange-50/50' },
+  { icon: Train, label: 'Train Ticket Booking', gradient: 'from-orange-500 via-red-500 to-rose-500', bgGradient: 'from-orange-50/50 via-red-50/50 to-rose-50/50' },
+  { icon: Car, label: 'Automotive', gradient: 'from-gray-600 via-gray-700 to-gray-800', bgGradient: 'from-gray-50/50 via-gray-100/50 to-gray-200/50' },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.2 } }
-};
-
-const stepVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, type: 'spring', stiffness: 100 } }
-};
-
-export default function ProcessSection() {
+export default function IndustriesSection() {
   return (
-    <section id="process" aria-label="Our working process" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/30 to-white">
+    <section id="industries" aria-label="Industries served by NexaWave Digital" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-12 sm:mb-16">
-          {/* Left Column */}
-          <motion.div 
-            className="relative"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-orange-500/5 rounded-full blur-2xl" />
-            <motion.div 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50/80 via-red-50/80 to-pink-50/80 border border-orange-200/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-orange-500" />
-              <span className="text-orange-700 text-xs font-semibold uppercase tracking-wider">How We Work</span>
-            </motion.div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 leading-[1.15]">
-              Trusted Service,{' '}
-              <span className="text-orange-500 font-extrabold">For Your Various Needs</span>
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base mb-6 leading-relaxed max-w-md">
-              A streamlined process designed to deliver results efficiently and transparently from start to finish.
-            </p>
-            <div className="flex flex-wrap gap-4 mb-6">
-              {['Transparent Process', 'Fast Delivery', 'Lifetime Support'].map((text, i) => (
-                <motion.div 
-                  key={text}
-                  className="flex items-center gap-1.5"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + i * 0.1, duration: 0.3 }}
-                >
-                  <CheckCircle className="w-4 h-4 text-orange-500" />
-                  <span className="text-xs text-gray-600 font-medium">{text}</span>
-                </motion.div>
-              ))}
-            </div>
-            <motion.a 
-              href="#contact" 
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-semibold rounded-full text-sm shadow-lg shadow-orange-500/30"
-              whileHover={{ scale: 1.05, y: -3, boxShadow: '0 25px 40px -12px rgba(249, 115, 22, 0.5)' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get in touch 
-              <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform duration-300" />
-            </motion.a>
-          </motion.div>
-
-          {/* Right Column - Steps */}
-          <motion.div 
-            className="relative"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <div className="absolute left-3 top-6 bottom-6 w-0.5 bg-gradient-to-b from-orange-500 via-red-500 to-pink-500 opacity-20" />
-            <div className="space-y-0">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={step.num}
-                  variants={stepVariants}
-                  className={`relative flex gap-4 py-5 ${i < steps.length - 1 ? 'border-b border-gray-100/80' : ''} group cursor-default pl-12`}
-                >
-                  <motion.div 
-                    className="absolute left-0 top-5 flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 text-white text-[10px] font-bold shadow-lg shadow-orange-500/20"
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <span className="sr-only">Step {step.num}</span>
-                    <span>{step.num}</span>
-                  </motion.div>
-                  <div className="flex-1">
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1 group-hover:text-orange-500 transition-all duration-300 flex items-center gap-2">
-                      {step.title}
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        whileHover={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ChevronRight className="w-3.5 h-3.5 text-orange-500" />
-                      </motion.div>
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
-                      {step.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 opacity-0 animate-on-scroll">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50/80 via-red-50/80 to-orange-50/80 border border-orange-200/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105">
+            <Sparkles className="w-3.5 h-3.5 text-orange-500" />
+            <span className="text-orange-700 text-xs font-semibold uppercase tracking-wider">Industries We Serve</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-[1.15] mb-3">
+            Industries{' '}
+            <span className="text-orange-500 font-extrabold">We Serve</span>
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            We bring domain-specific expertise to every project, ensuring your website speaks directly to your target audience.
+          </p>
         </div>
 
-        {/* Image Section */}
-        <motion.div 
-          className="relative rounded-2xl overflow-hidden h-64 sm:h-80 lg:h-96 shadow-2xl group"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent z-10" />
-          <motion.div 
-            className="absolute top-4 right-4 z-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg px-3 py-1.5"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <div className="flex items-center gap-1.5">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-400"></span>
-              </span>
-              <span className="text-white text-xs font-medium">Active Projects</span>
+        {/* Industries Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {industries.map(({ icon: Icon, label, gradient, bgGradient }, index) => (
+            <div
+              key={label}
+              className="group relative flex flex-col items-center gap-2.5 p-4 sm:p-5 rounded-xl border border-gray-100/50 hover:border-transparent bg-white/80 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] cursor-default overflow-hidden opacity-0 animate-on-scroll"
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
+              <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+              <div className={`absolute -inset-1 rounded-xl bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
+              <div className="relative z-10 flex flex-col items-center gap-2.5">
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg shadow-opacity-30 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                  <Icon className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-gray-700 text-center transition-all duration-300 group-hover:text-orange-500">
+                  {label}
+                </span>
+                <span className="w-1 h-1 rounded-full bg-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
             </div>
-          </motion.div>
-          <Image
-            src={processTeam}
-            alt="NexaWave Digital team building custom websites and SEO systems for clients"
-            fill
-            className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-            sizes="(max-width: 768px) 100vw, calc(100vw - 64px)"
-            loading="lazy"
-            quality={85}
-          />
-          <motion.div 
-            className="absolute bottom-0 left-0 right-0 z-10 p-6 bg-gradient-to-t from-black/60 to-transparent"
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <p className="text-white text-sm font-medium">Our team at work — building digital excellence</p>
-            <p className="text-white/60 text-xs">Rajsamand, Rajasthan — 2024</p>
-          </motion.div>
-        </motion.div>
+          ))}
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="mt-10 sm:mt-14 opacity-0 animate-on-scroll animation-delay-200">
+          <div className="relative bg-gradient-to-r from-orange-600/5 via-red-600/5 to-orange-600/5 rounded-2xl border border-orange-200/30 px-6 sm:px-8 py-4 sm:py-5 backdrop-blur-sm transition-all duration-300 hover:shadow-xl">
+            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+              {[
+                { icon: Building2, label: '12+ Industries', sub: 'And counting', gradient: 'from-orange-500 to-red-500' },
+                { icon: TrendingUp, label: '10+ Projects', sub: 'Successfully delivered', gradient: 'from-amber-500 to-orange-500' },
+                { icon: Sparkles, label: 'Domain Expertise', sub: 'Tailored solutions', gradient: 'from-red-500 to-rose-500' },
+              ].map((item, i) => (
+                <div 
+                  key={i}
+                  className="flex items-center gap-2.5 transition-all duration-300 hover:scale-105"
+                  style={{ animationDelay: `${0.3 + i * 0.1}s` }}
+                >
+                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-md shadow-orange-500/30`}>
+                    <item.icon className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-gray-900">{item.label}</div>
+                    <div className="text-[10px] text-gray-500">{item.sub}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-10 sm:mt-12 text-center opacity-0 animate-on-scroll animation-delay-300">
+          <p className="text-gray-600 text-sm sm:text-base">
+            Not sure if we're the right fit?{' '}
+            <a 
+              href="#contact" 
+              className="group inline-flex items-center gap-1 text-orange-500 font-semibold hover:text-orange-600 transition-all duration-300 hover:translate-x-1"
+            >
+              Let's talk about your industry.
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-45" />
+            </a>
+          </p>
+        </div>
       </div>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-on-scroll {
+          animation: fadeInUp 0.6s ease-out forwards;
+          opacity: 0;
+        }
+        .animation-delay-200 {
+          animation-delay: 0.2s;
+        }
+        .animation-delay-300 {
+          animation-delay: 0.3s;
+        }
+        .animation-delay-400 {
+          animation-delay: 0.4s;
+        }
+      `}</style>
     </section>
   );
 }

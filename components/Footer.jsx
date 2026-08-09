@@ -1,7 +1,6 @@
 'use client';
 
 import { Zap, Sparkles, Shield, Clock, Award } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const quickLinks = [
   { label: 'Home', href: '#home' },
@@ -59,125 +58,90 @@ const socials = [
   { icon: InstagramIcon, href: 'https://www.instagram.com/nexawavedigital?igsh=a2IzdzZveXNvemp2', label: 'Instagram' },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
-};
-
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-gray-950 to-black text-white">
-      <motion.div 
-        className="h-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500"
-        initial={{ width: 0 }}
-        whileInView={{ width: '100%' }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      />
+      <div className="h-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Column */}
-          <motion.div className="lg:col-span-1" variants={itemVariants}>
-            <motion.div 
-              className="flex items-center gap-2.5 mb-4"
-              whileHover={{ scale: 1.02 }}
-            >
-              <motion.div 
-                className="w-10 h-10 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30"
-                whileHover={{ rotate: 6, scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-              >
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30">
                 <Zap className="w-5 h-5 text-white fill-white" />
-              </motion.div>
+              </div>
               <span className="font-bold text-xl tracking-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 NexaWave
               </span>
-            </motion.div>
+            </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
               Your trusted partner for digital growth across India. Web, App, SEO, Marketing & AI Automation — delivered with luxury craft.
             </p>
             
             <div className="flex flex-wrap gap-2 mb-6">
               {['Trusted', '1+ Years', '10+ Clients'].map((text, i) => (
-                <motion.div 
-                  key={text}
-                  className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-800/50 rounded-full border border-gray-700/50"
-                  whileHover={{ scale: 1.05, borderColor: 'rgba(249, 115, 22, 0.3)' }}
-                >
+                <div key={text} className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-800/50 rounded-full border border-gray-700/50">
                   {i === 0 && <Shield className="w-3 h-3 text-orange-400" />}
                   {i === 1 && <Clock className="w-3 h-3 text-blue-400" />}
                   {i === 2 && <Award className="w-3 h-3 text-yellow-400" />}
                   <span className="text-[10px] text-gray-400">{text}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
             
             <div className="flex gap-2.5">
               {socials.map(({ icon: Icon, href, label }) => (
-                <motion.a
+                <a
                   key={label}
                   href={href}
                   aria-label={label}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-9 h-9 bg-gray-800/60 hover:bg-gradient-to-r hover:from-orange-500 hover:via-red-500 hover:to-pink-500 rounded-full flex items-center justify-center transition-all duration-300"
-                  whileHover={{ scale: 1.15, rotate: 6 }}
-                  whileTap={{ scale: 0.9 }}
                 >
                   <Icon className="w-4 h-4 text-gray-400 group-hover:text-white" />
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.nav variants={itemVariants}>
+          <nav>
             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-5 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full" />
               Quick Links
             </h4>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
-                <motion.li key={link.label} whileHover={{ x: 5 }}>
-                  <a href={link.href} className="text-gray-400 hover:text-orange-400 text-sm transition-colors duration-200 inline-block">
+                <li key={link.label}>
+                  <a href={link.href} className="text-gray-400 hover:text-orange-400 text-sm transition-colors duration-200 inline-block hover:translate-x-1 transition-transform">
                     {link.label}
                   </a>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.nav>
+          </nav>
 
           {/* Services */}
-          <motion.div variants={itemVariants}>
+          <div>
             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-5 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full" />
               Services
             </h4>
             <ul className="space-y-2.5">
               {services.map((s) => (
-                <motion.li key={s} whileHover={{ x: 5 }}>
+                <li key={s}>
                   <span className="text-gray-400 hover:text-orange-400 text-sm transition-colors duration-200 cursor-default">
                     {s}
                   </span>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Contact */}
-          <motion.div variants={itemVariants}>
+          <div>
             <h4 className="text-xs font-bold text-white uppercase tracking-widest mb-5 flex items-center gap-2">
               <span className="w-6 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full" />
               Contact Us
@@ -185,71 +149,46 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Phone</p>
-                <motion.a
-                  href="tel:+916377675005"
-                  className="text-gray-300 hover:text-orange-400 text-sm font-medium transition-colors duration-200"
-                  whileHover={{ x: 5 }}
-                >
+                <a href="tel:+916377675005" className="text-gray-300 hover:text-orange-400 text-sm font-medium transition-colors duration-200">
                   +91 63776 75005
-                </motion.a>
+                </a>
               </li>
               <li>
                 <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Email</p>
-                <motion.a
-                  href="mailto:info.nexawavedigital@gmail.com"
-                  className="text-gray-300 hover:text-orange-400 text-sm font-medium transition-colors duration-200 break-all"
-                  whileHover={{ x: 5 }}
-                >
+                <a href="mailto:info.nexawavedigital@gmail.com" className="text-gray-300 hover:text-orange-400 text-sm font-medium transition-colors duration-200 break-all">
                   info.nexawavedigital@gmail.com
-                </motion.a>
+                </a>
               </li>
               <li>
                 <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">Location</p>
                 <span className="text-gray-300 text-sm font-medium">Rajsamand, Rajasthan, India</span>
               </li>
               <li>
-                <motion.a
-                  href="https://wa.me/916377675005"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-orange-400 hover:text-orange-300 transition-colors duration-200"
-                  whileHover={{ x: 5 }}
-                >
+                <a href="https://wa.me/916377675005" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-orange-400 hover:text-orange-300 transition-colors duration-200">
                   <Sparkles className="w-3 h-3" />
                   Chat on WhatsApp
-                </motion.a>
+                </a>
               </li>
             </ul>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Bar */}
-      <motion.div 
-        className="border-t border-gray-800/60 bg-black/30"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
+      <div className="border-t border-gray-800/60 bg-black/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-gray-500 text-[11px]">
             © 2026 <span className="text-gray-400">NexaWave Digital</span>. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
-            {['Terms of Service', 'Privacy Policy', 'Sitemap'].map((text, i) => (
-              <motion.a 
-                key={text}
-                href="#" 
-                className="text-gray-500 hover:text-orange-400 text-[11px] transition-colors duration-200"
-                whileHover={{ scale: 1.05 }}
-              >
+            {['Terms of Service', 'Privacy Policy', 'Sitemap'].map((text) => (
+              <a key={text} href="#" className="text-gray-500 hover:text-orange-400 text-[11px] transition-colors duration-200">
                 {text}
-              </motion.a>
+              </a>
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </footer>
   );
 }

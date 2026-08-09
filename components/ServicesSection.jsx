@@ -13,7 +13,6 @@ import {
   Rocket,
   CheckCircle,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const services = [
   {
@@ -66,35 +65,16 @@ const services = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring', stiffness: 100 } }
-};
-
 export default function ServicesSection() {
   return (
     <section id="services" aria-label="Our digital services" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div 
-          className="text-center max-w-3xl mx-auto mb-10 sm:mb-14"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div 
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50/80 via-red-50/80 to-pink-50/80 border border-orange-200/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm"
-            whileHover={{ scale: 1.05 }}
-          >
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50/80 via-red-50/80 to-pink-50/80 border border-orange-200/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-orange-500" />
             <span className="text-orange-700 text-xs font-semibold uppercase tracking-wider">What We Do</span>
-          </motion.div>
+          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-[1.15] mb-3">
             Services That Drive{' '}
             <span className="text-orange-500 font-extrabold">Real Growth</span>
@@ -102,117 +82,60 @@ export default function ServicesSection() {
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Complete digital solutions designed to transform your business and accelerate growth across every touchpoint.
           </p>
-        </motion.div>
+        </div>
 
         {/* Services Grid */}
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mb-10 sm:mb-14"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mb-10 sm:mb-14">
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <motion.div
+              <Link
                 key={service.title}
-                variants={cardVariants}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                href={service.href}
+                className="group relative block bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100/50 hover:border-transparent hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
-                <Link
-                  href={service.href}
-                  className="group relative block bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100/50 hover:border-transparent hover:shadow-2xl transition-all duration-500 overflow-hidden"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
-                  
-                  <motion.div 
-                    className="absolute -inset-full bg-gradient-to-r from-transparent via-white/20 to-transparent rotate-45"
-                    animate={{
-                      x: ['-100%', '100%'],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      ease: 'easeInOut',
-                      repeat: Infinity,
-                      repeatDelay: 3,
-                    }}
-                  />
-
-                  <div className="relative">
-                    <motion.div 
-                      className={`w-11 h-11 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-3 shadow-lg shadow-opacity-30`}
-                      whileHover={{ scale: 1.15, rotate: 6 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Icon className="w-5 h-5 text-white" />
-                    </motion.div>
-                    <h3 className="text-base font-bold text-gray-900 mb-1.5 group-hover:text-orange-500 transition-all duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
-                      {service.desc}
-                    </p>
-                    <motion.div 
-                      className="mt-3.5 flex items-center gap-1.5 text-xs font-medium opacity-0 group-hover:opacity-100"
-                      initial={{ y: 10 }}
-                      whileHover={{ y: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-orange-500">Learn more</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-orange-500 transition-transform duration-300 group-hover:translate-x-1" />
-                    </motion.div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                <div className={`absolute -inset-1 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300`} />
+                
+                <div className="relative">
+                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-3 shadow-lg`}>
+                    <Icon className="w-5 h-5 text-white" />
                   </div>
-                </Link>
-              </motion.div>
+                  <h3 className="text-base font-bold text-gray-900 mb-1.5 group-hover:text-orange-500 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+                    {service.desc}
+                  </p>
+                  <div className="mt-3.5 flex items-center gap-1.5 text-xs font-medium text-orange-500">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </div>
+              </Link>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* Enhanced CTA Section */}
-        <motion.div 
+        <div 
           className="relative overflow-hidden rounded-2xl p-8 sm:p-12 text-center shadow-2xl"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           style={{
             background: 'linear-gradient(135deg, #f97316 0%, #ef4444 50%, #ec4899 100%)'
           }}
         >
-          {/* Animated background elements */}
           <div className="absolute inset-0 overflow-hidden">
-            <motion.div 
-              className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"
-              animate={{ scale: [1, 1.2, 1], x: [0, -30, 0] }}
-              transition={{ duration: 8, repeat: Infinity }}
-            />
-            <motion.div 
-              className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"
-              animate={{ scale: [1, 1.3, 1], x: [0, 30, 0] }}
-              transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-            />
-            <motion.div 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 6, repeat: Infinity }}
-            />
-            
-            {/* Grid pattern overlay */}
+            <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
           </div>
 
           <div className="relative z-10">
-            {/* Trust badge */}
-            <motion.div 
-              className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2 mb-6"
-              whileHover={{ scale: 1.05 }}
-            >
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2 mb-6">
               <Rocket className="w-4 h-4 text-white" />
               <span className="text-white/90 text-xs font-semibold uppercase tracking-wider">Trusted by 100+ Businesses</span>
-            </motion.div>
+            </div>
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
               Ready to Grow Your Business?
@@ -222,7 +145,6 @@ export default function ServicesSection() {
               Let's discuss how we can help you achieve your digital goals with our premium services.
             </p>
 
-            {/* Trust indicators */}
             <div className="flex flex-wrap justify-center gap-6 mb-8">
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-white/80" />
@@ -238,35 +160,28 @@ export default function ServicesSection() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <motion.a 
+              <a 
                 href="#contact" 
                 className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-orange-500 font-semibold rounded-full shadow-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 text-sm"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
               >
                 Start Your Project
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.a>
-              
-              <motion.a 
+              </a>
+              <a 
                 href="#services" 
-                className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-semibold rounded-full transition-all duration-300 text-sm"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white/10 backdrop-blur-sm hover:bg-white/20 border border-white/30 text-white font-semibold rounded-full transition-colors duration-300 text-sm"
               >
                 Explore Services
                 <Sparkles className="w-4 h-4" />
-              </motion.a>
+              </a>
             </div>
 
-            {/* Small note */}
             <p className="text-xs text-white/60 mt-4">
               No commitment required • Free consultation • 100% satisfaction guaranteed
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
