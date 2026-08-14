@@ -36,6 +36,19 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @layer utilities {
   .text-green-brand {
     color: #16a34a;
@@ -86,6 +99,8 @@ body {
   /* stylelint-disable-next-line unit-no-unknown */
   height: calc(100svh - 72px);
 }
+
+
 
 /* Scrollbar */
 ::-webkit-scrollbar {

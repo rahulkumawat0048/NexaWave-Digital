@@ -8,6 +8,8 @@ const FONT_PRECONNECT_CROSS = 'https://fonts.gstatic.com';
 const FONT_HREF =
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap';
 
+import SmoothScroll from "@/components/SmoothScroll";
+
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -81,8 +83,7 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.jpeg', type: 'image/svg+xml' },
     ],
     apple: '/apple-icon.png',
   },
@@ -106,7 +107,9 @@ export default function RootLayout({ children }) {
         <JsonLd />
       </head>
       <body className="font-inter overflow-x-hidden">
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <FloatingButtons />
       </body>
     </html>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -24,9 +25,7 @@ export default function Navbar() {
             aria-label="NexaWave Digital home" 
             className="flex items-center gap-2.5 shrink-0"
           >
-            <div className="w-9 h-9 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30">
-              <Zap className="w-4 h-4 text-white fill-white" />
-            </div>
+              <Image src="/favicon.jpeg" width={30} height={30} className='rounded-sm' />
             <span className="font-bold text-[16px] tracking-tight text-gray-900 leading-none">
               NexaWave <span className="text-orange-500">Digital</span>
             </span>
