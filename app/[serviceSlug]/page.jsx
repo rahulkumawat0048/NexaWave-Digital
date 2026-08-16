@@ -111,30 +111,30 @@ export default async function ServicePage({ params }) {
             animation: 'slideDown 0.5s ease-out forwards'
           }}
         >
-          <Link href="/" className="hover:text-orange-500 transition-colors duration-200">
+          <Link href="/" className="hover:text-[--plum] transition-colors duration-200">
             Home
           </Link>
           <span className="mx-2 text-gray-300">/</span>
-          <Link href="/#services" className="hover:text-orange-500 transition-colors duration-200">
+          <Link href="/#services" className="hover:text-[--plum] transition-colors duration-200">
             Services
           </Link>
           <span className="mx-2 text-gray-300">/</span>
-          <span className="text-orange-500 font-medium">{service.name}</span>
+          <span className="text-[--plum] font-medium">{service.name}</span>
         </nav>
 
         {/* Main Content */}
         <div className="space-y-10" style={{ animation: 'fadeIn 0.6s ease-out forwards' }}>
           {/* Service Header */}
           <div className="relative">
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-orange-500/5 rounded-full blur-2xl" />
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-50/80 via-red-50/80 to-pink-50/80 border border-orange-200/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm hover:scale-105 transition-transform duration-300">
-              <Sparkles className="w-3.5 h-3.5 text-orange-500" />
-              <span className="text-orange-700 text-xs font-semibold uppercase tracking-wider">Our Service</span>
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-[--plum]/5 rounded-full blur-2xl" />
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[--plum]/10 via-[--plum-dark]/10 to-pink-50/80 border border-[--plum]/30 rounded-full px-4 py-1.5 mb-4 shadow-sm backdrop-blur-sm hover:scale-105 transition-transform duration-300">
+              <Sparkles className="w-3.5 h-3.5 text-[--plum]" />
+              <span className="text-[--plum-dark] text-xs font-semibold uppercase tracking-wider">Our Service</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-[1.15]">
               {service.name}{' '}
-              <span className="text-orange-500">Across India</span>
+              <span className="text-[--plum]">Across India</span>
             </h1>
             
             <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
@@ -143,7 +143,7 @@ export default async function ServicePage({ params }) {
           </div>
 
           {/* CTA Card */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 p-6 sm:p-8 shadow-2xl shadow-orange-500/30 hover:shadow-3xl transition-shadow duration-500">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[--plum] via-[--plum-dark] to-pink-500 p-6 sm:p-8 shadow-2xl shadow-[--plum]/30 hover:shadow-3xl transition-shadow duration-500">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" style={{ animation: 'pulseSlow 4s ease-in-out infinite' }} />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" style={{ animation: 'pulseSlowDelay 5s ease-in-out infinite 1s' }} />
             
@@ -157,7 +157,7 @@ export default async function ServicePage({ params }) {
               </p>
               <Link
                 href="/#contact"
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-orange-500 font-semibold rounded-full text-sm shadow-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-[--plum] font-semibold rounded-full text-sm shadow-lg hover:shadow-2xl hover:shadow-white/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
               >
                 Get a Free Quote
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -168,7 +168,7 @@ export default async function ServicePage({ params }) {
           {/* Why Choose Us Section */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-1 h-8 bg-gradient-to-b from-orange-500 via-red-500 to-pink-500 rounded-full" />
+              <div className="w-1 h-8 bg-gradient-to-b from-[--plum] via-[--plum-dark] to-pink-500 rounded-full" />
               <h2 className="text-2xl font-bold text-gray-900">Why Choose NexaWave Digital?</h2>
             </div>
             
@@ -189,15 +189,15 @@ export default async function ServicePage({ params }) {
                     className="group relative bg-white/80 backdrop-blur-sm rounded-xl border border-gray-100/50 hover:border-transparent p-4 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-1 hover:scale-[1.02]"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-50/50 via-red-50/50 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500" />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[--plum]/10 via-[--plum-dark]/10 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[--plum] via-[--plum-dark] to-pink-500 opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500" />
                     
                     <div className="relative flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[--plum] via-[--plum-dark] to-pink-500 flex items-center justify-center shrink-0 shadow-lg shadow-[--plum]/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                         <Icon className="w-4.5 h-4.5 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 text-sm group-hover:text-orange-500 transition-all duration-300">
+                        <h3 className="font-semibold text-gray-900 text-sm group-hover:text-[--plum] transition-all duration-300">
                           {benefit.label}
                         </h3>
                         <p className="text-xs text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
@@ -212,23 +212,23 @@ export default async function ServicePage({ params }) {
           </div>
 
           {/* Service Areas - All India */}
-          <div className="relative bg-gradient-to-r from-orange-600/5 via-red-600/5 to-pink-600/5 rounded-2xl border border-orange-200/30 px-6 sm:px-8 py-5 sm:py-6 backdrop-blur-sm hover:shadow-xl transition-shadow duration-300">
+          <div className="relative bg-gradient-to-r from-[--plum]/5 via-[--plum-dark]/5 to-pink-600/5 rounded-2xl border border-[--plum]/30 px-6 sm:px-8 py-5 sm:py-6 backdrop-blur-sm hover:shadow-xl transition-shadow duration-300">
             <div className="flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-orange-500" />
+                <MapPin className="w-5 h-5 text-[--plum]" />
                 <span className="text-sm font-semibold text-gray-700">Serving Across India:</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {indianStates.slice(0, 12).map((state, index) => (
                   <span
                     key={state}
-                    className="inline-flex px-3 py-1 bg-white/80 backdrop-blur-sm border border-orange-200/50 rounded-full text-xs font-medium text-gray-700 hover:text-orange-500 hover:border-orange-300 transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                    className="inline-flex px-3 py-1 bg-white/80 backdrop-blur-sm border border-[--plum]/50 rounded-full text-xs font-medium text-gray-700 hover:text-[--plum] hover:border-[--plum] transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {state}
                   </span>
                 ))}
-                <span className="inline-flex px-3 py-1 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-pink-500/10 border border-orange-200/50 rounded-full text-xs font-medium text-orange-600 shadow-sm">
+                <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[--plum]/10 via-[--plum-dark]/10 to-pink-500/10 border border-[--plum]/50 rounded-full text-xs font-medium text-[--plum] shadow-sm">
                   + {indianStates.length - 12} More States
                 </span>
               </div>
@@ -246,7 +246,7 @@ export default async function ServicePage({ params }) {
             </p>
             <Link
               href="/#contact"
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-semibold rounded-full text-sm shadow-lg shadow-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[--plum] via-[--plum-dark] to-pink-500 hover:from-[--plum-dark] hover:via-[--plum] hover:to-pink-600 text-white font-semibold rounded-full text-sm shadow-lg shadow-[--plum]/30 hover:shadow-2xl hover:shadow-[--plum]/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             >
               Start Your Project
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
