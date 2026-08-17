@@ -2,6 +2,9 @@ import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import heroMain from '@/public/hero/hero-main.jpeg';
 import heroProject from '@/public/hero/hero-project.jpeg';
+import first from '@/public/hero/1.jpeg';
+import secod from '@/public/hero/2.jpeg';
+import third from '@/public/hero/3.jpeg';
 
 const stats = [
   { value: '10+', label: 'Projects Delivered', sub: 'Across diverse industries' },
@@ -17,13 +20,13 @@ export default function HeroSection() {
       <div className="flex flex-col sm:hidden hero-mobile-container mx-3 pb-2 pt-1" style={{ height: 'calc(100vh - 74px)' }}>
         <div className="relative rounded-2xl overflow-hidden flex-1 min-h-0">
           <Image
-            src={heroMain}
+            src={first}
             alt="NexaWave Digital — website development and SEO agency in Rajsamand, Rajasthan"
             fill
             priority
             quality={80}
             className="object-cover object-center"
-            sizes="100vw"
+            sizes="80vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/30 via-gray-900/60 to-gray-900/90" />
           <div className="relative h-full flex flex-col justify-end px-5 pb-16 pt-8">
@@ -65,11 +68,24 @@ export default function HeroSection() {
         </div>
       </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
       {/* DESKTOP layout */}
       <div className="hidden sm:block">
         <div className="relative mx-6 lg:mx-8 rounded-2xl overflow-hidden" style={{ height: 'calc(100vh - 64px)' }}>
           <Image
-            src={heroMain}
+            src={first}
             alt="NexaWave Digital — premium website development and smart SEO systems in Rajsamand"
             fill
             priority
