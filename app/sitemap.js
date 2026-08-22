@@ -10,24 +10,6 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 1,
     },
-    {
-      url: `${SITE_URL}/#services`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/#pricing`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/#contact`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
   ];
 
   const servicePages = SERVICES.map((service) => ({
