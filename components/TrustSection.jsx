@@ -1,9 +1,131 @@
-'use client';
+"use client";
 
-import { Users as Users2, Award, Clock, Shield, Sparkles, Globe as Globe2, ThumbsUp, TrendingUp, Star, Zap } from 'lucide-react';
+import {
+  Users as Users2,
+  Award,
+  Clock,
+  Shield,
+  Sparkles,
+  Globe as Globe2,
+  ThumbsUp,
+  TrendingUp,
+  Star,
+  Zap,
+} from "lucide-react";
 
 const trustIndicators = [
-  { icon: Users2, value: '10+', label: 'Happy Clients', description: 'Across diverse industries' }, { icon: Award, value: '100%', label: 'Satisfaction Rate', description: 'Quality guaranteed' }, { icon: Clock, value: '3-4', label: 'Day Delivery', description: 'For landing pages' }, { icon: Shield, value: '24/7', label: 'Support', description: 'Dedicated assistance' },
+  {
+    icon: Users2,
+    value: "10+",
+    label: "Happy Clients",
+    description: "Across diverse industries",
+  },
+  {
+    icon: Award,
+    value: "100%",
+    label: "Satisfaction Rate",
+    description: "Quality guaranteed",
+  },
+  {
+    icon: Clock,
+    value: "3-4",
+    label: "Day Delivery",
+    description: "For landing pages",
+  },
+  {
+    icon: Shield,
+    value: "24/7",
+    label: "Support",
+    description: "Dedicated assistance",
+  },
 ];
 
-export default function TrustSection() { return <section id="trust" aria-label="Trust and quality assurance" className="bg-[#fbfafb] py-20 sm:py-28"><div className="section-shell"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Why choose us</p><h2 className="mt-4 font-display text-4xl font-bold tracking-[-.04em] text-[#211b22] sm:text-5xl">We believe in <span className="text-[var(--plum)]">quality &amp; trust</span></h2><p className="mt-5 text-sm leading-7 text-[var(--muted)]">Every project we deliver goes through rigorous quality checks. We're committed to building scalable, high-performance solutions that help your business grow.</p></div><div className="mt-12 grid grid-cols-2 border border-[#e8e0e8] bg-white md:grid-cols-4">{trustIndicators.map(({ icon: Icon, value, label, description }, index) => <div key={label} className={`group p-6 text-center sm:p-8 ${index < 3 ? 'border-r border-[#e8e0e8]' : ''}`}><Icon className="mx-auto h-7 w-7 text-[var(--plum)]" strokeWidth={1.25} /><div className="mt-4 font-display text-3xl font-bold text-[#241d25]">{value}</div><div className="mt-1 text-[10px] font-bold uppercase tracking-[.12em] text-[var(--plum)]">{label}</div><p className="mt-2 text-[11px] text-[#978e98]">{description}</p></div>)}</div><div className="mt-16 grid gap-6 sm:grid-cols-3">{[{ icon: Sparkles, title: 'Quality First', desc: 'Every line of code is reviewed for performance, security, and best practices.' }, { icon: Globe2, title: 'Modern Solutions', desc: 'We use the latest technologies to build fast, responsive, and scalable websites.' }, { icon: Users2, title: 'Client-First Approach', desc: 'Your success is our success. We work closely with you to achieve your goals.' }].map(({ icon: Icon, title, desc }) => <div key={title} className="border-t-2 border-[var(--plum)] bg-white p-6"><Icon className="h-6 w-6 text-[var(--plum)]" strokeWidth={1.3} /><h3 className="mt-5 text-sm font-bold text-[#241d25]">{title}</h3><p className="mt-2 text-xs leading-6 text-[var(--muted)]">{desc}</p></div>)}</div><div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-[10px] font-bold uppercase tracking-[.12em] text-[#716873]">{[{ icon: ThumbsUp, label: '100% Client Satisfaction' }, { icon: TrendingUp, label: '10+ Projects Delivered' }, { icon: Star, label: '4.9/5 Rating' }, { icon: Zap, label: 'Fast Turnaround' }].map(({ icon: Icon, label }) => <span key={label} className="inline-flex items-center gap-2"><Icon className="h-4 w-4 text-[var(--plum)]" />{label}</span>)}</div></div></section>; }
+export default function TrustSection() {
+  return (
+    <section
+      id="trust"
+      aria-label="Trust and quality assurance"
+      className="bg-[#fbfafb] py-20 sm:py-28"
+    >
+      <div className="section-shell">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow">Why choose us</p>
+          <h2 className="mt-4 font-display text-4xl font-bold tracking-[-.04em] text-[#211b22] sm:text-5xl">
+            We believe in{" "}
+            <span className="text-[var(--plum)]">quality &amp; trust</span>
+          </h2>
+          <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
+            Every project we deliver goes through rigorous quality checks. We're
+            committed to building scalable, high-performance solutions that help
+            your business grow.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 border border-[#e8e0e8] bg-white md:grid-cols-4">
+          {trustIndicators.map(
+            ({ icon: Icon, value, label, description }, index) => (
+              <div
+                key={label}
+                className={`group p-6 text-center sm:p-8 ${index < 3 ? "border-r border-[#e8e0e8]" : ""}`}
+              >
+                <Icon
+                  className="mx-auto h-7 w-7 text-[var(--plum)]"
+                  strokeWidth={1.25}
+                />
+                <div className="mt-4 font-display text-3xl font-bold text-[#241d25]">
+                  {value}
+                </div>
+                <div className="mt-1 text-[10px] font-bold uppercase tracking-[.12em] text-[var(--plum)]">
+                  {label}
+                </div>
+                <p className="mt-2 text-[11px] text-[#978e98]">{description}</p>
+              </div>
+            ),
+          )}
+        </div>
+        <div className="mt-16 grid gap-6 sm:grid-cols-3">
+          {[
+            {
+              icon: Sparkles,
+              title: "Quality First",
+              desc: "Every line of code is reviewed for performance, security, and best practices.",
+            },
+            {
+              icon: Globe2,
+              title: "Modern Solutions",
+              desc: "We use the latest technologies to build fast, responsive, and scalable websites.",
+            },
+            {
+              icon: Users2,
+              title: "Client-First Approach",
+              desc: "Your success is our success. We work closely with you to achieve your goals.",
+            },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="border-t-2 border-[var(--plum)] bg-white p-6"
+            >
+              <Icon className="h-6 w-6 text-[var(--plum)]" strokeWidth={1.3} />
+              <h3 className="mt-5 text-sm font-bold text-[#241d25]">{title}</h3>
+              <p className="mt-2 text-xs leading-6 text-[var(--muted)]">
+                {desc}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-[10px] font-bold uppercase tracking-[.12em] text-[#716873]">
+          {[
+            { icon: ThumbsUp, label: "100% Client Satisfaction" },
+            { icon: TrendingUp, label: "10+ Projects Delivered" },
+            { icon: Star, label: "4.9/5 Rating" },
+            { icon: Zap, label: "Fast Turnaround" },
+          ].map(({ icon: Icon, label }) => (
+            <span key={label} className="inline-flex items-center gap-2">
+              <Icon className="h-4 w-4 text-[var(--plum)]" />
+              {label}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
